@@ -1,0 +1,21 @@
+/* style.css */
+
+.card {
+  background-color: #f3f4f6; /* Light gray background */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  background-color: #e5e7eb; /* Slightly darker gray background */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn {
+  background-color: #34D399; /* Green background for buttons */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #10B981; /* Darker green for hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
