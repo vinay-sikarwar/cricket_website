@@ -1,33 +1,41 @@
 import React from "react";
 
+// Import images
+import image1 from "../../image/pexels-john-mwaniki-3891426-27118179.jpg";
+import image2 from "../../image/pexels-yogendras31-10987828.jpg";
+import image3 from "../../image/pexels-yogendras31-11204757.jpg";
+import image4 from "../../image/pexels-lesandu-alokabandara-670648380-21415108.jpg";
+import image5 from "../../image/pexels-usbofphotography-12732864.jpg";
+import image6 from "../../image/pexels-suzyhazelwood-4219639.jpg";
+
 const galleryImages = [
   {
-    src: "/image/pexels-john-mwaniki-3891426-27118179.jpg",
+    src: image1,
     title: "Cricket in Action",
     description: "Experience the thrill of a live match."
   },
   {
-    src: "/image/pexels-yogendras31-10987828.jpg",
+    src: image2,
     title: "Power Hit",
     description: "Witness the boundaries and sixes."
   },
   {
-    src: "/image/pexels-yogendras31-11204757.jpg",
+    src: image3,
     title: "Top Players",
     description: "Follow the journey of star players."
   },
   {
-    src: "/image/pexels-lesandu-alokabandara-670648380-21415108.jpg",
+    src: image4,
     title: "Winning Moments",
     description: "Relive the best moments in cricket history."
   },
   {
-    src: "/image/pexels-usbofphotography-12732864.jpg",
+    src: image5,
     title: "Match 5",
     description: "Another exciting match."
   },
   {
-    src: "/image/pexels-suzyhazelwood-4219639.jpg",
+    src: image6,
     title: "Cricket Action 6",
     description: "A thrilling conclusion."
   }

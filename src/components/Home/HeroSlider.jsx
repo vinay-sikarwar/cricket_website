@@ -2,19 +2,24 @@ import React, { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Import images
+import image1 from "../../image/pexels-stewphotography-9828070.jpg";
+import image2 from "../../image/pexels-riccardo-parretti-145996493-10469894.jpg";
+import image3 from "../../image/pexels-suzyhazelwood-4219639.jpg";
+
 const slides = [
   {
-    image: "/image/pexels-stewphotography-9828070.jpg",
+    image: image1,
     title: "T20 World Cup Super 8 Matches",
     description: "Catch the excitement of the Super 8 matches from the T20 World Cup!"
   },
   {
-    image: "/image/pexels-riccardo-parretti-145996493-10469894.jpg",
+    image: image2,
     title: "Exciting Match Highlights",
     description: "View the most thrilling moments from recent cricket matches."
   },
   {
-    image: "/image/pexels-suzyhazelwood-4219639.jpg",
+    image: image3,
     title: "Cricket Championship Final",
     description: "Relive the final match of the championship with all its key moments."
   }

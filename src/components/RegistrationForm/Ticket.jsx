@@ -1,5 +1,5 @@
 import React from 'react';
-import backgroundImage from '../../../image/ticket.png'; // Ensure the path is correct
+import backgroundImage from '../../image/xyzg.jpg'; // Ensure the path is correct
 
 const Ticket = ({ formData, onRegisterAnother }) => (
   <div className="container mx-auto px-4 py-10 flex justify-center"

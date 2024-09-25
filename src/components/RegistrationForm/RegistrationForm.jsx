@@ -3,7 +3,7 @@ import RegistrationStep1 from './RegistrationStep1';
 import RegistrationStep2 from './RegistrationStep2';
 import RegistrationStep3 from './RegistrationStep3';
 import Ticket from './Ticket'; // Import the Ticket component
-import eventImage from "../../../image/xyzg.jpg";
+import eventImage from "../../image/xyzg.jpg";
 import backgroundImg from "../../../image/newticket.png"; 
 
 function RegistrationForm() {

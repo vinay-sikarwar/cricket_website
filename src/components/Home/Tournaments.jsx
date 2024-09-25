@@ -1,24 +1,29 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+// Import images
+import image1 from "../../image/1.jpg";
+import image2 from "../../image/2.jpg";
+import image3 from "../../image/3.jpg";
 
 const tournaments = [
   {
     name: "The XYZ Trophy",
     date: "September 29, 2024",
     format: "TEST",
-    image: "/image/1.jpg"
+    image: image1
   },
   {
     name: "XYZ ODI Cup",
     date: "October 17, 2024",
     format: "ODI",
-    image: "/image/2.jpg"
+    image: image2
   },
   {
     name: "XYZ Twenty20 League",
     date: "November 5, 2024",
     format: "T20",
-    image: "/image/3.jpg"
+    image: image3
   }
 ];
 
@@ -37,7 +42,9 @@ const Tournaments = () => {
               <h3 className="text-2xl font-semibold">{tournament.name}</h3>
               <p className="mt-2 text-gray-700">Date: {tournament.date}</p>
               <p className="text-gray-700">Format: {tournament.format}</p>
-              <NavLink to="registration" className="btn mt-4 inline-block text-white bg-green-500 hover:bg-green-600">Register Now</NavLink>
+              <NavLink to="registration" className="btn mt-4 inline-block text-white bg-green-500 hover:bg-green-600">
+                Register Now
+              </NavLink>
             </div>
           ))}
         </div>
