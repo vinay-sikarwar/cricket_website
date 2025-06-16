@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../../image/ticket.png"; // Adjust path if needed
+import backgroundImage from "../../../image/logo.png"; // Adjust path if needed
 
 const formatTournament = (code) => {
   switch (code) {

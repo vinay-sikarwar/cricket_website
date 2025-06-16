@@ -1,12 +1,12 @@
 import React from "react";
 
 // Import images
-import image1 from "../../image/pexels-john-mwaniki-3891426-27118179.jpg";
-import image2 from "../../image/pexels-yogendras31-10987828.jpg";
-import image3 from "../../image/pexels-yogendras31-11204757.jpg";
-import image4 from "../../image/pexels-lesandu-alokabandara-670648380-21415108.jpg";
-import image5 from "../../image/pexels-usbofphotography-12732864.jpg";
-import image6 from "../../image/pexels-suzyhazelwood-4219639.jpg";
+import image1 from "../../../image/pexels-john-mwaniki-3891426-27118179.jpg";
+import image2 from "../../../image/pexels-yogendras31-10987828.jpg";
+import image3 from "../../../image/pexels-yogendras31-11204757.jpg";
+import image4 from "../../../image/pexels-lesandu-alokabandara-670648380-21415108.jpg";
+import image5 from "../../../image/pexels-usbofphotography-12732864.jpg";
+import image6 from "../../../image/pexels-suzyhazelwood-4219639.jpg";
 
 const galleryImages = [
   {

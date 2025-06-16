@@ -8,7 +8,7 @@ export default function LiveScore() {
   useEffect(() => {
     async function fetchLive() {
       try {
-        const key = "f3ee6201-d56e-403f-8c46-92fe077f4708";
+        const key = import.meta.env.VITE_CRICKET_API_KEY;
         const res = await fetch(
           `https://cricketdata.org/api/v1/currentMatches?apikey=${key}`
         );

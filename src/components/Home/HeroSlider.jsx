@@ -3,9 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Import images
-import image1 from "../../image/pexels-stewphotography-9828070.jpg";
-import image2 from "../../image/pexels-riccardo-parretti-145996493-10469894.jpg";
-import image3 from "../../image/pexels-suzyhazelwood-4219639.jpg";
+import image1 from "../../../image/pexels-stewphotography-9828070.jpg";
+import image2 from "../../../image/pexels-riccardo-parretti-145996493-10469894.jpg";
+import image3 from "../../../image/pexels-suzyhazelwood-4219639.jpg";
 
 const slides = [
   {
