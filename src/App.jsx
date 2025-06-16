@@ -1,66 +1,87 @@
-import React, { useState } from "react";
-import HeroSlider from "./components/Home/HeroSlider";
-import Tournaments from "./components/Home/Tournaments";
-import TopTeams from "./components/Home/TopTeams";
-import PastMatches from "./components/Home/PastMatches";
-import Gallery from "./components/Home/Gallery";
+// App.jsx
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/Home";
+import SidebarNav from "./components/SideNavbar";
+import MobileNav from "./components/MobileNav";
+import Merch from "./components/Merch";
+import HostMatch from "./components/HostMatch";
+import LiveScore from "./components/LiveScore";
+import Footer from "./components/Footer";
 import AboutUs from "./components/Home/AboutUs";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm"
+import FantasyLeague from "./components/FantasyLeague";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <Home />
+        <Footer />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/merch",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <Merch />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/hostmatch",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <HostMatch />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/scores",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <LiveScore />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/registration",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <RegistrationForm />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/fantasy",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <FantasyLeague />
+        <MobileNav />
+      </div>
+    ),
+  },
+]);
 
 function App() {
-  const [modalData, setModalData] = useState({
-    title: '',
-    content: '',
-    isOpen: false,
-  });
-
-  const openModal = (match) => {
-    const matchData = {
-      match1: {
-        title: 'Hunters XI vs Gladiators',
-        content: 'Hunters XI won by 50 runs.',
-      },
-      match2: {
-        title: 'Gladiators vs Warriors XI',
-        content: 'Gladiators won by 10 runs.',
-      },
-      match3: {
-        title: 'Warriors XI vs Hunters XI',
-        content: 'Warriors XI won by 2 wickets.',
-      },
-      top1: {
-        title: 'Hunters XI',
-        content: 'Known for their aggressive gameplay and consistent performances, Hunters XI has dominated XYZ organizations tournaments. They are top contenders with a strong batting lineup and a dynamic bowling attack.'
-      },
-      top2: {
-        title: 'Gladiators',
-        content: 'Gladiators are a well-balanced team, with a mix of experienced players and rising stars. Their teamwork and strategic approach have made them formidable opponents in XYZ tournaments.'
-      },
-      top3: {
-        title: 'Warrior XI',
-        content: 'Warrior XI is known for their resilience and never-give-up attitude. They’ve earned their place as one of the top teams through hard work, skill, and determination, making them a favorite in XYZ’s competitions.'
-      },
-    };
-    setModalData({ ...matchData[match], isOpen: true });
-  };
-
-  const closeModal = () => {
-    setModalData({ title: '', content: '', isOpen: false });
-  };
-
   return (
-    <div className="bg-gray-100">
-      <Header />
-      <HeroSlider />
-      <Tournaments />
-      {/* Pass openModal to TopTeams */}
-      <TopTeams openModal={openModal} />
-      <Gallery />
-      {/* Pass openModal to PastMatches */}
-      <PastMatches openModal={openModal} />
-      {modalData.isOpen && <Modal modalData={modalData} closeModal={closeModal} />}
-      <AboutUs />
-      <Footer />
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 

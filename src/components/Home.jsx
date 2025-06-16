@@ -3,9 +3,13 @@ import HeroSlider from "./Home/HeroSlider";
 import Modal from "./Modal"
 import Tournaments from "./Home/Tournaments";
 import TopTeams from "./Home/TopTeams";
-import PastMatches from "./Home/PastMatches";
 import Gallery from "./Home/Gallery";
 import AboutUs from "./Home/AboutUs";
+import SidebarNav from "./SideNavbar";
+import Hero from "./HeroNew";
+import MobileNav from "./MobileNav";
+import Unleash from "./Unleash";
+import LiveScore from "./LiveScore";
 
 function Home() {
   const [modalData, setModalData] = useState({
@@ -16,18 +20,6 @@ function Home() {
 
   const openModal = (match) => {
     const matchData = {
-      match1: {
-        title: 'Hunters XI vs Gladiators',
-        content: 'Hunters XI won by 50 runs.',
-      },
-      match2: {
-        title: 'Gladiators vs Warriors XI',
-        content: 'Gladiators won by 10 runs.',
-      },
-      match3: {
-        title: 'Warriors XI vs Hunters XI',
-        content: 'Warriors XI won by 2 wickets.',
-      },
       top1: {
         title: 'Hunters XI',
         content: 'Known for their aggressive gameplay and consistent performances, Hunters XI has dominated XYZ organizations tournaments. They are top contenders with a strong batting lineup and a dynamic bowling attack.'
@@ -50,11 +42,12 @@ function Home() {
 
   return (
     <div className="bg-gray-100">
-      <HeroSlider />
+      <Hero />
+      <Unleash />
       <div id="tournaments"><Tournaments /></div>
+      <LiveScore />
       <TopTeams openModal={openModal} />
       <div id="gallery"><Gallery /></div>
-      <PastMatches openModal={openModal} />
       {modalData.isOpen && <Modal modalData={modalData} closeModal={closeModal} />}
       <div id="about"><AboutUs /></div>
     </div>

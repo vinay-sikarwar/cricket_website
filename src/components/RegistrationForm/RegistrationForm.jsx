@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import RegistrationStep1 from './RegistrationStep1';
-import RegistrationStep2 from './RegistrationStep2';
-import RegistrationStep3 from './RegistrationStep3';
-import Ticket from './Ticket'; // Import the Ticket component
+import React, { useState } from "react";
+import RegistrationStep1 from "./RegistrationStep1";
+import RegistrationStep2 from "./RegistrationStep2";
+import RegistrationStep3 from "./RegistrationStep3";
+import Ticket from "./Ticket";
 import eventImage from "../../image/xyzg.jpg";
-import backgroundImg from "../../../image/newticket.png"; 
 
 function RegistrationForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    teamName: '',
-    teamMembers: '',
-    tournament: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
+    name: "",
+    email: "",
+    phone: "",
+    teamName: "",
+    teamMembers: "",
+    tournament: "",
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
   });
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
@@ -27,33 +26,32 @@ function RegistrationForm() {
 
   const handleInputChange = (e) => {
     const { name, value, selectedOptions } = e.target;
-    
-    // Check if the select element is being changed
-    if (name === 'tournament') {
-      const selectedText = selectedOptions[0].text; // Get the text of the selected option
-      setFormData({ ...formData, [name]: selectedText }); // Use selected text instead of value
+    if (name === "tournament") {
+      const selectedText = selectedOptions[0].text;
+      setFormData({ ...formData, [name]: selectedText });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
-      console.log('Response:', data);
-
-      setIsSubmitted(true); // Set to true to show Ticket component
+      console.log("Response:", data);
+      setIsSubmitted(true);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
@@ -61,30 +59,33 @@ function RegistrationForm() {
     setIsSubmitted(false);
     setStep(1);
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      teamName: '',
-      teamMembers: '',
-      tournament: '',
-      cardNumber: '',
-      expiryDate: '',
-      cvv: '',
+      name: "",
+      email: "",
+      phone: "",
+      teamName: "",
+      teamMembers: "",
+      tournament: "",
+      cardNumber: "",
+      expiryDate: "",
+      cvv: "",
     });
   };
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center flex justify-center items-center"
-      style={{ backgroundImage: `url(${backgroundImg})` }} // Use background image for the whole page
-    >
-      <div className="container mx-auto flex flex-col lg:flex-row justify-center items-center bg-white shadow-lg rounded-lg mt-12 mb-24 p-6 max-w-4xl">
+    <div className="min-h-screen bg-gradient-to-br from-[#0b0b0b] via-[#101010] to-[#1a1a1a] flex justify-center items-center px-4">
+      <div className="w-full max-w-5xl mx-auto bg-[#1e1e1e] border border-[#2e2e2e] text-white rounded-2xl shadow-2xl flex flex-col lg:flex-row overflow-hidden">
         {isSubmitted ? (
-          <Ticket formData={formData} onRegisterAnother={handleRegisterAnother} />
+          <Ticket
+            formData={formData}
+            onRegisterAnother={handleRegisterAnother}
+          />
         ) : (
           <>
-            <div className="w-full lg:w-1/2 p-4">
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">Event Registration</h2>
+            {/* Form Section */}
+            <div className="w-full lg:w-1/2 p-8 space-y-4">
+              <h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#00FF66] via-white to-[#00FF66] mb-6">
+                Event Registration
+              </h2>
 
               {step === 1 && (
                 <RegistrationStep1
@@ -108,13 +109,18 @@ function RegistrationForm() {
                   formData={formData}
                   handleInputChange={handleInputChange}
                   onPrevious={prevStep}
-                  onSubmit={handleSubmit} // Ensure this is connected
+                  onSubmit={handleSubmit}
                 />
               )}
             </div>
 
-            <div className="hidden lg:flex lg:w-1/2">
-              <img src={eventImage} alt="Event" className="object-cover w-full h-full rounded-lg shadow-md" />
+            {/* Image Section */}
+            <div className="hidden lg:block lg:w-1/2">
+              <img
+                src={eventImage}
+                alt="Event"
+                className="h-full w-full object-cover grayscale hover:grayscale-0 transition duration-300"
+              />
             </div>
           </>
         )}

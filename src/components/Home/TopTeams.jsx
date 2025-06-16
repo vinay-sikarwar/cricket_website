@@ -1,40 +1,68 @@
-import React from 'react';
-import './style.css'; 
+import React from "react";
+import { ShieldCheck, Trophy, BarChart3 } from "lucide-react";
 
-const TopTeams = ({ openModal }) => {
+const topTeams = [
+  {
+    icon: (
+      <ShieldCheck className="w-7 h-7 mb-2 text-primary group-hover:scale-125 transition-transform" />
+    ),
+    title: "Hunters XI",
+    desc: "6-Time XYZ Trophy Winners. Fierce and dominant on the pitch.",
+    rank: "#1",
+    to: "top1",
+  },
+  {
+    icon: <Trophy className="w-7 h-7 mb-2 text-primary animate-pulse" />,
+    title: "Gladiators",
+    desc: "4-Time Champions. Balanced, bold, and brilliant in clutch moments.",
+    rank: "#2",
+    to: "top2",
+  },
+  {
+    icon: <BarChart3 className="w-7 h-7 mb-2 text-primary" />,
+    title: "Warriors XI",
+    desc: "Resilient and strategic. 3-Time winners climbing the ranks.",
+    rank: "#3",
+    to: "top3",
+  },
+];
+
+function TopTeams({ openModal }) {
   return (
-    <section id="Top_Teams" className="py-16 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center mb-10">
-          <h2 className="text-4xl font-bold text-gray-800">Top Teams</h2>
-        </div>
+    <section className="py-16 px-4 bg-gradient-to-b from-[#0b0b0b] via-[#0e0e0e] to-[#121212] text-white">
+      <div className="container mx-auto flex flex-col items-center">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-[#00FF66] via-white to-[#00FF66]">
+          Top Teams of the League
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="card bg-gray-100 p-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-            <h3 className="text-2xl font-semibold">Hunters XI</h3>
-            <p className="mt-2 text-gray-700">Rank: #1</p>
-            <p className="mt-2 text-gray-700">Wins: 12/23</p>
-            <p className="mt-2 text-gray-700">6 Time XYZ Trophy Winner</p>
-            <button className="btn mt-4 inline-block text-white" onClick={() => openModal('top1')}>Details</button>
-          </div>
-          <div className="card bg-gray-100 p-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-            <h3 className="text-2xl font-semibold">Gladiators</h3>
-            <p className="mt-2 text-gray-700">Rank: #2</p>
-            <p className="mt-2 text-gray-700">Wins: 8/19</p>
-            <p className="mt-2 text-gray-700">4 Time XYZ Trophy Winner</p>
-            <button className="btn mt-4 inline-block text-white" onClick={() => openModal('top2')}>Details</button>
-          </div>
-          <div className="card bg-gray-100 p-8 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 ease-in-out">
-            <h3 className="text-2xl font-semibold">Warriors XI</h3>
-            <p className="mt-2 text-gray-700">Rank: #3</p>
-            <p className="mt-2 text-gray-700">Wins: 6/15</p>
-            <p className="mt-2 text-gray-700">3 Time XYZ Trophy Winner</p>
-            <button className="btn mt-4 inline-block text-white" onClick={() => openModal('top3')}>Details</button>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+          {topTeams.map((team) => (
+            <div
+              key={team.title}
+              className="group rounded-2xl bg-[#1a1a1a]/80 border border-[#2a2a2a] p-6 flex flex-col items-center text-center shadow-lg hover:shadow-[0_0_20px_#00FF6690] hover:border-[#00FF66] transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div className="text-[#00FF66] mb-4 group-hover:scale-110 transition-transform duration-300">
+                {team.icon}
+              </div>
+              <div className="font-bold text-xl text-white mb-1">
+                {team.title}
+              </div>
+              <div className="text-sm text-gray-400 mb-2">{team.desc}</div>
+              <div className="text-xs text-gray-500 italic">
+                Rank: {team.rank}
+              </div>
+              <button
+                className="mt-4 px-4 py-1 rounded-full bg-[#00FF66]/10 text-[#00FF66] font-medium border border-[#00FF66]/40 hover:bg-[#00FF66]/20 transition-colors duration-200"
+                onClick={() => openModal(team.to)}
+              >
+                View Details
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default TopTeams;

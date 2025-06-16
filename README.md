@@ -1,4 +1,4 @@
-# XYZ Organization - Cricket-Tournament Website
+# RJ Organization - Cricket-Tournament Website
 
 ## Project Overview
 This project is a dynamic and interactive website developed for XYZ Organization, a sports organization that conducts cricket tournaments in various formats. The website is designed to be visually engaging, reflecting the spirit of cricket, while offering a smooth user experience with cricket-themed elements.
