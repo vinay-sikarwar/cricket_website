@@ -8,10 +8,10 @@ const AboutUs = () => {
     >
       <div className="container mx-auto text-center max-w-4xl">
         <h2 className="text-3xl md:text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#00FF66] via-white to-[#00FF66]">
-          About RJ Organization
+          About PV Organization
         </h2>
         <p className="text-gray-300 text-lg leading-relaxed">
-          RJ Organization is dedicated to promoting cricket across all formats
+          PV Organization is dedicated to promoting cricket across all formats
           — from electrifying T20s to classic Test matches. We provide a stage
           for amateur and professional talent to shine, compete, and grow within
           the vibrant cricketing community. Our mission is to make cricket

@@ -24,7 +24,7 @@ const Footer = () => {
             <a href="#" className="text-green-300 hover:text-white"><i className="fab fa-instagram"></i></a>
             <a href="#" className="text-green-300 hover:text-white"><i className="fab fa-linkedin-in"></i></a>
           </div>
-          <p>&copy; 2024 RJ Organization. All Rights Reserved.</p>
+          <p>&copy; 2024 PV Organization. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

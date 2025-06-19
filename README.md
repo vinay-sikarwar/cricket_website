@@ -1,7 +1,7 @@
-# RJ Organization - Cricket-Tournament Website
+# PV Organization - Cricket-Tournament Website
 
 ## Project Overview
-This project is a dynamic and interactive website developed for XYZ Organization, a sports organization that conducts cricket tournaments in various formats. The website is designed to be visually engaging, reflecting the spirit of cricket, while offering a smooth user experience with cricket-themed elements.
+This project is a dynamic and interactive website developed for PV Organization, a sports organization that conducts cricket tournaments in various formats. The website is designed to be visually engaging, reflecting the spirit of cricket, while offering a smooth user experience with cricket-themed elements.
 
 This project is developed as part of the XYZ Organization's web development competition and we have used modern web development techniques such as React.js, Tailwind CSS, and animations for an engaging user experience
 ## **Features** 
@@ -11,6 +11,10 @@ This project is developed as part of the XYZ Organization's web development comp
 - **Registration Confirmation**: Users receive a confirmation page upon successful registration.
 - **Team Information**: Displays top teams and past match details.
 - **Gallery**: A showcase of tournament images.
+- **Fantasy Section** - Users can create their fantasy teams and compete with others.  
+- **Live Scores** - Real-time international match scores integrated into the platform.  
+- **Merch Buy Section** - Browse and purchase official PV Organization cricket merchandise.  
+- **Host a Cricket Match** - A dedicated button that allows users or clubs to register and host their own cricket matches through the platform.
 
 ## **Technologies Used**
 - **React.js** : The website is built using the React JavaScript framework.
