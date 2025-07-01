@@ -8,7 +8,7 @@ const links = [
   { to: "/scores", label: "Live Scores", icon: BarChart3 },
   { to: "/fantasy", label: "Fantasy League", icon: Crown },
   { to: "/merch", label: "Merch", icon: ShoppingBag },
-  { to: "#gallery", label: "Gallery", icon: Camera },
+  { to: "/gallery", label: "Gallery", icon: Camera },
   { to: "/hostmatch", label: "Host Match", icon: CalendarPlus }
 ];
 

@@ -3,7 +3,6 @@ import HeroSlider from "./Home/HeroSlider";
 import Modal from "./Modal"
 import Tournaments from "./Home/Tournaments";
 import TopTeams from "./Home/TopTeams";
-import Gallery from "./Home/Gallery";
 import AboutUs from "./Home/AboutUs";
 import SidebarNav from "./SideNavbar";
 import Hero from "./HeroNew";
