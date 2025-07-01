@@ -21,7 +21,7 @@ const Hero = () => {
           <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up animation-delay-600">
             {/* Neon green button */}
             <a
-              href="/fantasy"
+              href="#tournaments"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 text-lg font-bold text-black bg-[#00FF66] hover:bg-[#00e65c] shadow-[0_0_20px_#00FF66] transition-all duration-300 transform hover:scale-105 rounded"
             >
               <Calendar className="w-5 h-5" />
@@ -30,7 +30,7 @@ const Hero = () => {
 
             {/* Outline neon button */}
             <a
-              href="#teams"
+              href="/fantasy"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 text-lg font-bold text-white border border-[#00FF66] hover:bg-[#00ff6620] shadow-[0_0_10px_#00FF66] transition-all duration-300 transform hover:scale-105 rounded"
             >
               <Shield className="w-5 h-5 text-[#00FF66]" />

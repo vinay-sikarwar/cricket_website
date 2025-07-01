@@ -43,10 +43,11 @@ function Home() {
     <div className="bg-gray-100">
       <Hero />
       <Unleash />
+      
       <div id="tournaments"><Tournaments /></div>
+    
       <LiveScore />
       <TopTeams openModal={openModal} />
-      <div id="gallery"><Gallery /></div>
       {modalData.isOpen && <Modal modalData={modalData} closeModal={closeModal} />}
       <div id="about"><AboutUs /></div>
     </div>
