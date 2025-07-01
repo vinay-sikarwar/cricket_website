@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import AboutUs from "./components/Home/AboutUs";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm"
 import FantasyLeague from "./components/FantasyLeague";
+import Gallery from "./components/Home/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,16 @@ const router = createBrowserRouter([
       <div className="min-h-screen md:ml-20">
         <SidebarNav />
         <FantasyLeague />
+        <MobileNav />
+      </div>
+    ),
+  },
+  {
+    path: "/Gallery",
+    element: (
+      <div className="min-h-screen md:ml-20">
+        <SidebarNav />
+        <Gallery />
         <MobileNav />
       </div>
     ),

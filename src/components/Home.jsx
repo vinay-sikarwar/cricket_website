@@ -3,7 +3,6 @@ import HeroSlider from "./Home/HeroSlider";
 import Modal from "./Modal"
 import Tournaments from "./Home/Tournaments";
 import TopTeams from "./Home/TopTeams";
-import Gallery from "./Home/Gallery";
 import AboutUs from "./Home/AboutUs";
 import SidebarNav from "./SideNavbar";
 import Hero from "./HeroNew";
@@ -44,10 +43,11 @@ function Home() {
     <div className="bg-gray-100">
       <Hero />
       <Unleash />
+      
       <div id="tournaments"><Tournaments /></div>
+    
       <LiveScore />
       <TopTeams openModal={openModal} />
-      <div id="gallery"><Gallery /></div>
       {modalData.isOpen && <Modal modalData={modalData} closeModal={closeModal} />}
       <div id="about"><AboutUs /></div>
     </div>

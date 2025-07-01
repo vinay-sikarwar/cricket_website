@@ -4,6 +4,7 @@ import { Gauge } from "lucide-react";
 export default function LiveScore() {
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [expandedMatchId, setExpandedMatchId] = useState(null); // for toggle
 
   useEffect(() => {
     async function fetchLive() {
@@ -12,16 +13,12 @@ export default function LiveScore() {
         const res = await fetch(
           `https://cricketdata.org/api/v1/currentMatches?apikey=${key}`
         );
-        console.log(res)
         const json = await res.json();
-        console.log(json);
         const matchList = json?.data?.slice(0, 5) || [];
-        
 
         setMatches(matchList);
         setLoading(false);
 
-        // Save to localStorage
         localStorage.setItem("liveScoreData", JSON.stringify(matchList));
         localStorage.setItem("lastFetchedTime", Date.now().toString());
       } catch (e) {
@@ -42,7 +39,10 @@ export default function LiveScore() {
       fetchLive();
     }
   }, []);
-  
+
+  const toggleMatchDetails = (matchId) => {
+    setExpandedMatchId((prev) => (prev === matchId ? null : matchId));
+  };
 
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-[#0b0b0b] via-[rgb(14,14,14)] to-[#121212] text-white min-h-[60vh]">
@@ -75,18 +75,13 @@ export default function LiveScore() {
                   } ovs)`
                 : "";
 
-              const isLive =
-                match.status?.toLowerCase().includes("live") ||
-                match.status?.toLowerCase().includes("won");
+              const isExpanded = expandedMatchId === match.id;
 
               return (
                 <div
-                  key={i}
-                  className={`rounded-2xl p-6 border shadow-md transition-all transform hover:-translate-y-2 ${
-                    isLive
-                      ? "bg-[#1a1a1a] border-[#00FF66] shadow-[0_0_20px_#00FF6690]"
-                      : "bg-[#1a1a1a]/80 border-[#2a2a2a] hover:border-[#00FF66] hover:shadow-[0_0_15px_#00FF6655]"
-                  }`}
+                  key={match.id || i}
+                  className="rounded-2xl p-6 border border-[#2a2a2a] bg-[#1a1a1a]/80 shadow-md transition-all duration-300 transform hover:-translate-y-2 hover:border-[#00FF66] hover:shadow-[0_0_20px_#00FF6690] cursor-pointer"
+                  onClick={() => toggleMatchDetails(match.id)}
                 >
                   <div className="font-semibold text-lg text-white mb-2">
                     {match.name}
@@ -101,6 +96,31 @@ export default function LiveScore() {
                   <div className="text-xs text-muted-foreground mt-1 italic">
                     {match.venue}
                   </div>
+
+                  {/* Expandable Scorecard Section */}
+                  {isExpanded && (
+                    <div className="mt-4 p-4 border border-[#333] rounded-lg bg-[#101010] text-sm space-y-2 transition-all duration-200">
+                      <div>
+                        <strong>Team 1:</strong> {match.team1 || "N/A"}
+                      </div>
+                      <div>
+                        <strong>Score:</strong> {score1}
+                      </div>
+                      <div>
+                        <strong>Team 2:</strong> {match.team2 || "N/A"}
+                      </div>
+                      <div>
+                        <strong>Score:</strong> {score2 || "Yet to bat"}
+                      </div>
+                      <div>
+                        <strong>Match Type:</strong> {match.matchType || "Unknown"}
+                      </div>
+                      <div>
+                        <strong>Date:</strong>{" "}
+                        {match.date ? new Date(match.date).toLocaleString() : "N/A"}
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
