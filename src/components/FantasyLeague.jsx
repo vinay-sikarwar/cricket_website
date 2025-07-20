@@ -17,17 +17,14 @@ function FantasyLeague() {
           json?.data?.filter((m) => m?.teams?.length === 2)?.slice(0, 10) || [];
 
         setMatches(matchList);
-        setLoading(false);
-
-        // Cache in localStorage
         localStorage.setItem("fantasyMatches", JSON.stringify(matchList));
         localStorage.setItem("fantasyFetchedTime", Date.now().toString());
       } catch (e) {
         console.error("Failed to fetch fantasy league data", e);
+      } finally {
         setLoading(false);
       }
     }
-    fetchMatches(); 
 
     const cached = localStorage.getItem("fantasyMatches");
     const lastFetched = localStorage.getItem("fantasyFetchedTime");
@@ -60,6 +57,7 @@ function FantasyLeague() {
                   <th className="py-3 px-4 text-left">Teams</th>
                   <th className="py-3 px-4 text-left">Type</th>
                   <th className="py-3 px-4 text-left">Status</th>
+                  <th className="py-3 px-4 text-left">Venue</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,16 +67,21 @@ function FantasyLeague() {
                     className="border-b border-[#2a2a2a] hover:bg-[#00FF6610] transition"
                   >
                     <td className="py-3 px-4 text-sm text-gray-300">
-                      {new Date(m.dateTimeGMT).toLocaleDateString()}
+                      {m.dateTimeGMT
+                        ? new Date(m.dateTimeGMT).toLocaleDateString()
+                        : "—"}
                     </td>
                     <td className="py-3 px-4 text-sm font-medium text-white">
                       {m.teams?.[0]} vs {m.teams?.[1]}
                     </td>
                     <td className="py-3 px-4 text-sm text-gray-400 uppercase">
-                      {m.matchType}
+                      {m.matchType || "—"}
                     </td>
                     <td className="py-3 px-4 text-sm text-gray-400">
-                      {m.status}
+                      {m.status || "—"}
+                    </td>
+                    <td className="py-3 px-4 text-sm text-gray-500 italic">
+                      {m.venue || "—"}
                     </td>
                   </tr>
                 ))}

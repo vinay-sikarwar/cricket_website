@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { CalendarDays, BadgeCheck } from "lucide-react";
 
-import image1 from "../../../image/1.jpg";
-import image2 from "../../../image/2.jpg";
-import image3 from "../../../image/3.jpg";
+import image1 from "../assets/upcom1.jpg";
+import image2 from "../assets/upcom2.jpg";
+import image3 from "../assets/upcom3.jpg";
 
 const tournaments = [
   {
@@ -40,11 +40,11 @@ const Tournaments = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {tournaments.map((tournament, index) => (
             <div
               key={index}
-              className="bg-[#1e1e1e] rounded-xl overflow-hidden shadow-lg border border-[#2a2a2a] hover:border-[#00FF66] hover:shadow-[0_0_12px_#00FF66] transition-all duration-300 w-80"
+              className="bg-[#1e1e1e] rounded-xl overflow-hidden shadow-lg border border-[#2a2a2a] hover:border-[#00FF66] hover:shadow-[0_0_12px_#00FF66] transition-all duration-300 w-full max-w-sm"
             >
               <img
                 src={tournament.image}

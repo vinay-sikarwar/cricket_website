@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import HeroSlider from "./Home/HeroSlider";
 import Modal from "./Modal"
 import Tournaments from "./Home/Tournaments";
 import TopTeams from "./Home/TopTeams";

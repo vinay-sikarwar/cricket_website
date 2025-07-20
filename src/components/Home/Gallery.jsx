@@ -1,12 +1,17 @@
 import React from "react";
+import Slider from "react-slick";
 
-// Import images
-import image1 from "../../../image/pexels-john-mwaniki-3891426-27118179.jpg";
-import image2 from "../../../image/pexels-yogendras31-10987828.jpg";
-import image3 from "../../../image/pexels-yogendras31-11204757.jpg";
-import image4 from "../../../image/pexels-lesandu-alokabandara-670648380-21415108.jpg";
-import image5 from "../../../image/pexels-usbofphotography-12732864.jpg";
-import image6 from "../../../image/pexels-suzyhazelwood-4219639.jpg";
+// Import slick styles
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Image imports
+import image1 from "../assets/gallary/pexels-john-mwaniki-3891426-27118179.jpg";
+import image2 from "../assets/gallary/pexels-yogendras31-10987828.jpg";
+import image3 from "../assets/gallary/pexels-yogendras31-11204757.jpg";
+import image4 from "../assets/gallary/pexels-lesandu-alokabandara-670648380-21415108.jpg";
+import image5 from "../assets/gallary/pexels-usbofphotography-12732864.jpg";
+import image6 from "../assets/gallary/pexels-suzyhazelwood-4219639.jpg";
 
 const galleryImages = [
   {
@@ -42,42 +47,59 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <section
-      id="gallery"
-      className="py-20 px-4 bg-gradient-to-b from-[#f9f9f9] to-[#e7f9ec] dark:from-[#0e0e0e] dark:to-[#1a1a1a]"
-    >
-      <div className="container mx-auto w-[80%]">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-12">
+    <section id="gallery" className="py-20 px-4 bg-[#0e0e0e] text-white">
+      <div className="container mx-auto w-[90%]">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-12">
           Cricket Gallery
         </h2>
 
-        <div
-          id="slider"
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-4"
-        >
+        <Slider {...settings}>
           {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className="min-w-[300px] bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-md rounded-2xl shadow-xl hover:shadow-green-500/20 transition-all duration-300 transform hover:-translate-y-2 snap-center"
-            >
-              <img
-                src={image.src}
-                alt={image.title}
-                className="w-full h-48 object-cover rounded-t-2xl"
-                loading="lazy"
-              />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  {image.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {image.description}
-                </p>
+            <div key={index} className="px-2">
+              <div className="bg-[#1a1a1a] rounded-2xl shadow-xl hover:shadow-green-500/20 transition-all duration-300 transform hover:-translate-y-2">
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className="w-full h-48 object-cover rounded-t-2xl"
+                />
+                <div className="p-4 text-center">
+                  <h3 className="text-xl font-semibold text-white">
+                    {image.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-2">
+                    {image.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );
